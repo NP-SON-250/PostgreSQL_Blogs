@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       postContent: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT('long')
       },
       userId: {
         type: Sequelize.INTEGER,

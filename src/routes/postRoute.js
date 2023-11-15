@@ -1,6 +1,6 @@
 import express from "express";
 import fileUpload from "../helper/multer";
-import {adminAuthorization, normalUserAuthentication} from "../middleware/Authentication";
+import {adminAuthorization} from "../middleware/Authentication";
 import {
      addPost,
      getAllPosts,

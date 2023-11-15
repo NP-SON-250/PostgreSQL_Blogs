@@ -1,6 +1,6 @@
 import express from "express";
 import fileUpload from "../helper/multer";
-import { normalUserAuthentication } from "../middleware/Authentication";
+import { normalUserAuthentication,adminAuthorization } from "../middleware/Authentication";
 
 import { 
     addReply,
@@ -11,8 +11,8 @@ import {
 
 const replyRoute = express.Router();
 replyRoute.post("/replies/add/:id",normalUserAuthentication,fileUpload.single("postImage"),addReply);
-replyRoute.get("/replies/single/:id", getReply);
 replyRoute.get("/replies/all", getAll);
-replyRoute.delete("/replies/delete/:id",normalUserAuthentication,deleteReply);
+replyRoute.get("/replies/single/:id", getReply);
+replyRoute.delete("/replies/delete/:id",adminAuthorization,deleteReply);
 
 export default replyRoute;

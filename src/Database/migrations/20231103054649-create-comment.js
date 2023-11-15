@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       commentBody: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT('long'),
         allowNull: false,
       },
       postId: {
