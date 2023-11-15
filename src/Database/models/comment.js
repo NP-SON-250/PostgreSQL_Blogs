@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Comments.init({
-    commentBody: DataTypes.STRING,
+    commentBody: DataTypes.TEXT('long'),
     postId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
   }, {

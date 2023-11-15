@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Replies.init({
-    replyMessage: DataTypes.STRING,
+    replyMessage: DataTypes.TEXT('long'),
     commentId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
   },
