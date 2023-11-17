@@ -1,5 +1,6 @@
 import Database from "../Database/models";
 import { uploadToCloud } from "../helper/cloud";
+import { Sequelize } from "sequelize";
 
 const User = Database["Users"];
 const Post = Database["Posts"];
@@ -64,6 +65,39 @@ export const addPost = async (req, res) => {
 export const getAllPosts = async (req, res) =>{
     try {
       const getPosts = await Post.findAll({
+        attributes: [
+          
+          'id',
+          'postTitle',
+          'postImage',
+          'postContent',
+          'views',
+          'createdAt',
+          [
+            Sequelize.literal(`(
+              SELECT COUNT(*) 
+              FROM "Likes"
+              WHERE "Likes"."postId" = "Posts"."id"
+            )`),
+            'allLikes',
+          ],
+          [
+            Sequelize.literal(`(
+              SELECT COUNT(*) 
+              FROM "unLikes"
+              WHERE "unLikes"."postId" = "Posts"."id"
+            )`),
+            'allUnlikes',
+          ],
+          [
+            Sequelize.literal(`(
+              SELECT COUNT(*) 
+              FROM "Comments"
+              WHERE "Comments"."postId" = "Posts"."id"
+            )`),
+            'allComents',
+          ],
+        ],
         include: [
           {
             model: User,
@@ -140,6 +174,22 @@ export const getSinglePost = async (req, res) => {
   
       // Find the post
       const getPost = await Post.findByPk(id,{
+        attributes: [
+          [
+            Sequelize.literal(`(
+              SELECT COUNT(*) 
+              FROM "Likes"
+              WHERE "Likes"."postId" = "Posts"."id"
+            )`),
+            'totalLikes',
+          ],
+          'id',
+          'postTitle',
+          'postImage',
+          'postContent',
+          'views',
+          'createdAt',
+        ],
         include: [
           {
             model: User,

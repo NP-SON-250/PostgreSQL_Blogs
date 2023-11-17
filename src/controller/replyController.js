@@ -1,5 +1,6 @@
 import Database from "../Database/models";
 
+
 const Post = Database["Posts"];
 const User = Database["Users"];
 const Comment = Database["Comments"]
