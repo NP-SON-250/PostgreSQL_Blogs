@@ -8,7 +8,7 @@ const Comment = Database["Comments"];
 const Reply = Database["Replies"];
 const Likes = Database["Likes"];
 const unLikes = Database["unLikes"];
-// adding a post
+// adding the post
 
 export const addPost = async (req, res) => {
   try {

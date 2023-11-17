@@ -97,7 +97,7 @@ export const getAll = async(req,res) =>{
     }
 }
 
-// getting a reply  by id
+// getting a reply  by reply id
 
 export const getReply = async (req, res) => {
     try {

@@ -9,10 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      likes: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0,
-      },
       userId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",

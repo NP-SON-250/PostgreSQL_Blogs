@@ -26,7 +26,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   unLikes.init(
     {
-      unLikes: DataTypes.INTEGER,
       postId: DataTypes.INTEGER,
       userId: DataTypes.INTEGER,
     },

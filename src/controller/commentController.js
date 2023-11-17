@@ -119,7 +119,7 @@ export const getAllComments = async (req,res) =>{
         
     }
 };
-// getting single comment by id
+// getting single comment by comment id
 
 export const getSingleComment = async (req,res) =>{
     try {

@@ -11,16 +11,13 @@ export const disLikePost = async (req, res) => {
 
     if (existingDislike) {
       await existingDislike.destroy();
-      await unLikes.decrement("unLikes", { by: 1, where: { postId } });
       res.status(200).json({ message: "Your dislike removed" });
     } else {
       const existingLike = await Likes.findOne({ where: { postId, userId } });
       if (existingLike) {
         await existingLike.destroy();
-        await Likes.decrement("likes", { by: 1, where: { postId } });
       }
       await unLikes.create({ postId, userId });
-      await unLikes.increment("unLikes", { by: 1, where: { postId } });
       res.status(200).json({ message: "Post disliked" });
     }
   } catch (error) {
