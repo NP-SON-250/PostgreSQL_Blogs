@@ -133,15 +133,6 @@ export const getUsers = async (req, res) => {
                 },
               ],
             },
-            {
-              model: Likes,
-              attributes: ["likes", "createdAt", "updatedAt"],
-            },
-
-            {
-              model: unLikes,
-              attributes: ["unLikes", "createdAt", "updatedAt"],
-            },
           ],
         },
       ],

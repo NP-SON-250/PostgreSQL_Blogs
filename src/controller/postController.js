@@ -129,7 +129,7 @@ export const getAllPosts = async (req, res) =>{
           },
           {
             model: Likes,
-            attributes: ['likes','createdAt','updatedAt'],
+            attributes: ['createdAt'],
             include:[
               {
                 model: User,
@@ -140,7 +140,7 @@ export const getAllPosts = async (req, res) =>{
           },
           {
             model: unLikes,
-            attributes: ['unLikes','createdAt','updatedAt'],
+            attributes: ['createdAt'],
             include:[
               {
                 model: User,
