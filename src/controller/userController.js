@@ -175,12 +175,12 @@ export const getSingleUser = async (req, res) => {
             },
             {
               model: Likes,
-              attributes: ["likes", "createdAt", "updatedAt"],
+              attributes: ["createdAt"],
             },
 
             {
               model: unLikes,
-              attributes: ["unLikes", "createdAt", "updatedAt"],
+              attributes: [ "createdAt"],
             },
           ],
         },
